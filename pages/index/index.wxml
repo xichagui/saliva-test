@@ -4,67 +4,97 @@
     唾液检测结果页
   </view>
   <form class="testForm">
-      <van-field id="sampleNo" label="样品号" model:value="{{ sampleNo }}" placeholder="请输入样品号" required error="{{ sampleNoCheck }}"/>
+      <van-field id="sampleNo" label="样品号" model:value="{{ sampleNo }}" placeholder="请输入样品号" use-button-slot required error="{{ sampleNoCheck }}">
+        <van-button slot="button" size="small" type="primary" bind:click="scan">
+          扫码
+        </van-button>
+      </van-field>
       <van-field label="采样时间" readonly value="{{ testDatetimeStr }}" required bind:click="showPopup" use-button-slot placeholder="请选择采样时间" error="{{ testDatetimeCheck }}"> 
         <van-button slot="button" size="small" type="primary" bind:click="showPopup">
           点击选择时间
         </van-button>
       </van-field>
-      <van-field label="病例号" model:value="{{ caseNo }}" placeholder="请输入病例号" required error="{{ caseNoCheck }}"/>
-      <van-field label="年龄" model:value="{{ age }}" placeholder="请输入年龄"/>
-      <van-field label="身高(厘米)" model:value="{{ height }}" placeholder="请输入身高" />
-      <van-field label="体重(公斤)" model:value="{{ weight }}" placeholder="请输体重" />
+      <van-field type="number" label="病例号" model:value="{{ caseNo }}" placeholder="请输入病例号" required error="{{ caseNoCheck }}"/>
+      <van-field type="number" label="年龄" model:value="{{ age }}" placeholder="请输入年龄" required error="{{ ageCheck }}"/>
+      <van-field type="number" label="身高(厘米)" model:value="{{ height }}" placeholder="请输入身高" />
+      <van-field type="number" label="体重(公斤)" model:value="{{ weight }}" placeholder="请输体重" />
 
-      <van-field class="f1" label="性别" use-button-slot>
+      <van-field class="f1" label="性别" use-button-slot required error-message="{{ genderCheck }}">
         <van-radio-group
-            data-name="sex"
+            data-name="gender"
             value="{{ gender }}"
             slot="button"
+            bind:change="onGenderChange"
           > 
             <van-row>
               <van-col span="12">
-                <van-radio name="1">男</van-radio>
+                <van-radio name="男">男</van-radio>
               </van-col>
               <van-col span="12">
-                <van-radio name="2">女</van-radio>
+                <van-radio name="女">女</van-radio>
               </van-col>
             </van-row>
           </van-radio-group>
       </van-field>
 
-      <van-field class="f1" label="口腔卫生" use-button-slot>
+      <van-field class="f1" label="口腔卫生" use-button-slot required error-message="{{ oralHygieneCheck }}">
         <van-radio-group
-            data-name="clean"
+            data-name="oralHygiene"
             value="{{ oralHygiene }}"
             slot="button"
+            bind:change="onOralHygieneChange"
           > 
             <van-row>
               <van-col span="12">
-                <van-radio name="1">良好</van-radio>
+                <van-radio name="良好">良好</van-radio>
               </van-col>
               <van-col span="12">
-                <van-radio name="2">炎症</van-radio>
+                <van-radio name="炎症">炎症</van-radio>
               </van-col>
             </van-row>
           </van-radio-group>
       </van-field>
 
-      <van-field class="f1" label="是否抽烟" use-button-slot>
+      <van-field class="f1" label="是否抽烟" use-button-slot required required error-message="{{ smokeCheck }}">
         <van-radio-group
             data-name="smoke"
-            value="{{ smoke }}"
+            value="{{ smoke }}"s
             slot="button"
+            bind:change="onSmokeChange"
           > 
             <van-row>
               <van-col span="12">
-                <van-radio name="1">是</van-radio>
+                <van-radio name="是">是</van-radio>
               </van-col>
               <van-col span="12">
-                <van-radio name="2">否</van-radio>
+                <van-radio name="否">否</van-radio>
               </van-col>
             </van-row>
           </van-radio-group>
       </van-field>
+      <view wx:if="{{gender == '女'}}">
+        <van-field class="f1" label="上次经期时间" use-button-slot center>
+          <van-radio-group
+              data-name="menstruation"
+              value="{{ menstruation }}"
+              slot="button"
+              bind:change="onMenstruationChange"
+            > 
+            <view class="f2">
+              <van-radio name="7天内">7天内</van-radio>
+              <van-radio name="7-9天">7-9天</van-radio>  
+            </view>
+            <view class="f2">
+              <van-radio name="10-18天">10-18天</van-radio>
+              <van-radio name="19-28天">19-28天</van-radio>  
+            </view>
+            <view class="f2">
+              <van-radio name="大于28天">大于28天</van-radio>
+            </view>
+            </van-radio-group>
+        </van-field>
+      </view>
+      
       <van-field class="f1" label="药物服用(12小时内)" use-button-slot center>
         <van-checkbox-group
             data-name="medicine"

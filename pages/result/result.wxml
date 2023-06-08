@@ -9,6 +9,6 @@
   <view class="result-text"><text>提交成功</text></view>
 
   <view class="btn-view">
-    <button type="primary" bindtap="onSubmit">提交</button>  
+    <button type="primary" bindtap="onBack">返回</button>  
   </view>
 </view>

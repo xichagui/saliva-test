@@ -64,7 +64,7 @@ Page({
 
   },
   
-  onSubmit() {
+  onBack() {
     wx.reLaunch({url: '/pages/index/index'})
   }
 })

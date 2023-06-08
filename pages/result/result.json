@@ -3,5 +3,6 @@
     "van-config-provider": "@vant/weapp/config-provider/index",
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index"
-  }
+  },
+  "navigationBarBackgroundColor": "#ffffff"
 }

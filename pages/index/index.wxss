@@ -60,9 +60,14 @@
   flex-grow: 1;
 }
 
+.f2 wx-van-radio{
+  flex-grow: 1;
+}
+
 .btn-view {
   background-color: #fff;
   padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .btn-view button {

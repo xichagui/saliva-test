@@ -16,5 +16,6 @@
     "van-checkbox-group": "@vant/weapp/checkbox-group/index",
     "van-icon": "@vant/weapp/icon/index"
   },
-  "navigationBarTitleText": "唾液检测"
+  "navigationBarTitleText": "唾液检测",
+  "navigationBarBackgroundColor": "#ffffff"
 }
