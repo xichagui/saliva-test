@@ -1,0 +1,128 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">
+    唾液检测结果页
+  </view>
+  <form class="testForm">
+      <van-field id="sampleNo" label="样品号" model:value="{{ sampleNo }}" placeholder="请输入样品号" required error="{{ sampleNoCheck }}"/>
+      <van-field label="采样时间" readonly value="{{ testDatetimeStr }}" required bind:click="showPopup" use-button-slot placeholder="请选择采样时间" error="{{ testDatetimeCheck }}"> 
+        <van-button slot="button" size="small" type="primary" bind:click="showPopup">
+          点击选择时间
+        </van-button>
+      </van-field>
+      <van-field label="病例号" model:value="{{ caseNo }}" placeholder="请输入病例号" required error="{{ caseNoCheck }}"/>
+      <van-field label="年龄" model:value="{{ age }}" placeholder="请输入年龄"/>
+      <van-field label="身高(厘米)" model:value="{{ height }}" placeholder="请输入身高" />
+      <van-field label="体重(公斤)" model:value="{{ weight }}" placeholder="请输体重" />
+
+      <van-field class="f1" label="性别" use-button-slot>
+        <van-radio-group
+            data-name="sex"
+            value="{{ gender }}"
+            slot="button"
+          > 
+            <van-row>
+              <van-col span="12">
+                <van-radio name="1">男</van-radio>
+              </van-col>
+              <van-col span="12">
+                <van-radio name="2">女</van-radio>
+              </van-col>
+            </van-row>
+          </van-radio-group>
+      </van-field>
+
+      <van-field class="f1" label="口腔卫生" use-button-slot>
+        <van-radio-group
+            data-name="clean"
+            value="{{ oralHygiene }}"
+            slot="button"
+          > 
+            <van-row>
+              <van-col span="12">
+                <van-radio name="1">良好</van-radio>
+              </van-col>
+              <van-col span="12">
+                <van-radio name="2">炎症</van-radio>
+              </van-col>
+            </van-row>
+          </van-radio-group>
+      </van-field>
+
+      <van-field class="f1" label="是否抽烟" use-button-slot>
+        <van-radio-group
+            data-name="smoke"
+            value="{{ smoke }}"
+            slot="button"
+          > 
+            <van-row>
+              <van-col span="12">
+                <van-radio name="1">是</van-radio>
+              </van-col>
+              <van-col span="12">
+                <van-radio name="2">否</van-radio>
+              </van-col>
+            </van-row>
+          </van-radio-group>
+      </van-field>
+      <van-field class="f1" label="药物服用(12小时内)" use-button-slot center>
+        <van-checkbox-group
+            data-name="medicine"
+            value="{{ medicine }}"
+            bind:change="onMedicineChange"
+            slot="button"
+          > 
+          <view class="f2">
+            <van-checkbox name="醋酸氢化可的松片">醋酸氢化可的松片</van-checkbox>
+            <van-checkbox name="醋酸泼尼松片">醋酸泼尼松片</van-checkbox>  
+          </view>
+          <view class="f2">
+            <van-checkbox name="十一酸睾酮胶丸">十一酸睾酮胶丸</van-checkbox>
+            <van-checkbox name="己烯雌酚片">己烯雌酚片</van-checkbox>  
+          </view>
+          <view class="f2">
+            <van-checkbox name="戊酸雌二醇片">戊酸雌二醇片</van-checkbox>
+            <van-checkbox name="黄体酮胶囊">黄体酮胶囊</van-checkbox>  
+          </view>
+          <view class="f2">
+            <van-checkbox name="左甲状腺素钠片">左甲状腺素钠片</van-checkbox>
+            <van-checkbox name="胰岛素注射液">胰岛素注射液</van-checkbox>  
+          </view>
+          </van-checkbox-group>
+      </van-field>
+      <van-field label="备注" model:value="{{ desc }}" placeholder="请输入" />
+  </form>
+  <view class="btn-view">
+    <button type="primary" bindtap="onSubmit">提交</button>  
+  </view>
+  <van-popup show="{{datetimePopupShow}}" position="bottom" bind:close="closePopup">
+    <van-datetime-picker
+        type="datetime"
+        value="{{ currentDate }}"
+        min-date="{{ minDate }}"
+        max-date="{{ maxDate }}"
+        bind:confirm="onInput"
+        bind:cancel="closePopup"
+      />
+  </van-popup>
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>

@@ -1,0 +1,39 @@
+/* pages/result/result.wxss */
+.success-circle {
+  background: rgb(37, 196, 37);
+  height: calc(33vw);
+  border-radius: 200px;
+  width: calc(33vw);
+  /* display: flex; */
+  /* align-items: center; */
+}
+
+.icon { 
+  width: calc(33vw);
+  height: calc(33vw);
+}
+
+.van-icon {
+  font-size: 20vw !important;
+}
+
+.result-view {
+  margin-top: 20vh;
+  display: flex;
+  justify-content: center;
+}
+
+.result-text {
+  margin-top: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.btn-view {
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.btn-view button {
+  max-width: 200px;
+}

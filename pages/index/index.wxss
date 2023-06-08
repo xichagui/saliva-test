@@ -1,0 +1,75 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.testForm {
+  padding-top: 20px;
+  background-color: #fff;
+}
+
+/* 单选框样式 */
+.f1 .van-field__input {
+  display: none;
+}
+/* 插槽宽度调整 */
+.f1 .van-field__button {
+  width: 100%;
+  padding: 0;
+}
+
+/* .f1 .van-radio {
+  width: 200px;
+} */
+.f1 .van-checkbox-group {
+  align-items: center;
+}
+
+.f1 .van-checkbox {
+  align-items: center;
+  height: 100%;
+}
+
+.f1 .checkbox-index--van-checkbox__label {
+  text-align: left;
+}
+
+.f2 {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.f2 wx-van-checkbox{
+  flex-grow: 1;
+}
+
+.btn-view {
+  background-color: #fff;
+  padding-top: 20px;
+}
+
+.btn-view button {
+  max-width: 200px;
+}
+.title {
+  background-color: #fff;
+  text-align: center;
+  font-size: 20px;
+}

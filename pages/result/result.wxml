@@ -1,0 +1,14 @@
+<!--pages/result/result.wxml-->
+<view>
+  <view class="result-view">
+    <view class="success-circle">
+    <van-icon class="icon" name="success" size="200px" color="white"/>  
+  </view>
+  </view>
+  
+  <view class="result-text"><text>提交成功</text></view>
+
+  <view class="btn-view">
+    <button type="primary" bindtap="onSubmit">提交</button>  
+  </view>
+</view>
